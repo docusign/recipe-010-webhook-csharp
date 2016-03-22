@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Send Signature Request";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<input type="button" class="btn btn-primary" onclick="SignatureRequestWebhook()" value="Signature Request - Webhook" />
+
+<p>
+
+</p>
+<script language="javascript">
+    function SignatureRequestWebhook() {
+        $.get("/Webhook010/SendSignatureRequest", function (data) {
+            $("p").html(data);
+        });
+    }
+</script>

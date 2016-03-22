@@ -1,0 +1,8 @@
+Webhook.v12.suo
+Webhook/bin
+Webhook/obj
+Webhook/Webhook.csproj.user
+Webhook/Documents
+!Webhook/Documents/NDA.pdf
+!Webhook/Documents/House.pdf
+!Webhook/Documents/contractor_agreement.docx

@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Send Signature Request";
+}
+<h1>DocuSign Webhook Recipe: Envelope Status</h1>
+<div id="env_info">
+    <h4>Subject: @ViewBag.Envelope.EmailSubject</h4>
+    <p>Envelope ID: @ViewBag.Envelope.EnvelopeId</p>
+</div>
+<div class="row fill">
+    <div class="wrapper" id="status_container">
+        <div id="status_left" class="col-md-3">
+            <ul id="toc" class="list-unstyled"></ul>
+            <ul class="margintop"><li>Click on an entry to view it</li><li>Italics indicate a change</li></ul>
+        </div>
+        <div id="right_column" class="col-md-9">
+            <div id="xml_info">
+            <div id="countdown"><h2>Waiting for first results… <span id="counter"></span></h2></div>
+            </div>
+            <div id="editor"></div>
+        </div>
+    </div>
+</div>
+<script language="javascript">
+    $(document).ready(window.setInterval(function () {
+        GetStatusUpdate();
+    }, 5000));
+
+    function GetStatusUpdate() {
+        $.ajax({
+            method: "GET",
+            url: '@Url.Action("StatusUpdate", "Webhook010")',
+            data: { envelopeid: "@ViewBag.Envelope.EnvelopeId" }
+        })
+        .done(function (msg) {
+            if (msg != null && msg != '') {
+                $('#status_container').html(msg);
+            }
+        });
+    }
+</script>

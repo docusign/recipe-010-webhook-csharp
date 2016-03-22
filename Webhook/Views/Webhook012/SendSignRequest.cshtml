@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Signature Request - Multiple Documents";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<input type="button" class="btn btn-primary" onclick="SignatureRequestMultipleDocs()" value="Signature Request - Multiple Documents" />
+
+<p>
+
+</p>
+<script language="javascript">
+    function SignatureRequestMultipleDocs() {
+        $.get("/Webhook012/SendSignatureRequest", function (data) {
+            $("p").html(data);
+        });
+    }
+</script>
