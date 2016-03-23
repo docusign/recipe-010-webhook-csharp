@@ -89,18 +89,21 @@ namespace Webhook.Controllers
             document1.Name = "NDA.pdf";
             Byte[] bytes1 = System.IO.File.ReadAllBytes(Server.MapPath("~/Documents/NDA.pdf"));
             document1.DocumentBase64 = Convert.ToBase64String(bytes1);
+            document1.FileExtension = "pdf";
 
             Document document2 = new Document();
             document2.DocumentId = "2";
             document2.Name = "House.pdf";
             Byte[] bytes2 = System.IO.File.ReadAllBytes(Server.MapPath("~/Documents/House.pdf"));
             document2.DocumentBase64 = Convert.ToBase64String(bytes2);
+            document2.FileExtension = "pdf";
 
             Document document3 = new Document();
             document3.DocumentId = "3";
             document3.Name = "contractor_agreement.docx";
             Byte[] bytes3 = System.IO.File.ReadAllBytes(Server.MapPath("~/Documents/contractor_agreement.docx"));
             document3.DocumentBase64 = Convert.ToBase64String(bytes3);
+            document3.FileExtension = "docx";
 
             /*
              * The signing fields
