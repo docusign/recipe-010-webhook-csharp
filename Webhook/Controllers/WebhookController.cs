@@ -32,7 +32,7 @@ namespace Webhook.Controllers
 
             XmlNode envelopeStatus = xmldoc.SelectSingleNode("//a:EnvelopeStatus", mgr);
             XmlNode envelopeId = envelopeStatus.SelectSingleNode("//a:EnvelopeID", mgr);
-            XmlNode status = envelopeStatus.SelectSingleNode("//a:Status", mgr);
+            XmlNode status = envelopeStatus.SelectSingleNode("./a:Status", mgr);
             if(envelopeId != null)
             {
                 System.IO.File.WriteAllText(HttpContext.Current.Server.MapPath("~/Documents/" +
